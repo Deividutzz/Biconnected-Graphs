@@ -106,7 +106,6 @@ void showComponents()
         cout << '\n';
         it ++;
     }
-    cout << '\n';
 }
 
 void showCritNodes(int n)
@@ -126,8 +125,6 @@ void showCritNodes(int n)
         if(critical[i])
             cout << i << " ";
     }
-
-    cout << endl;
 }
 
 void showBridges()
@@ -163,7 +160,9 @@ int main()
         }
     }
     showComponents();
+    cout << '\n';
     showCritNodes(n);
+    cout << '\n';
     showBridges();
     return 0;
 }
