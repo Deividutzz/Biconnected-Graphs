@@ -2,8 +2,8 @@
 #include <vector>
 #include <stack>
 using namespace std;
-ifstream cin("bicon.in");
-ofstream cout("bicon.out");
+ifstream cin("in.txt");
+ofstream cout("out.txt");
 const int maxLen = 300005;
 
 int count = 0;
@@ -106,6 +106,7 @@ void showComponents()
         cout << '\n';
         it ++;
     }
+    cout << '\n';
 }
 
 void showCritNodes(int n)
@@ -125,6 +126,8 @@ void showCritNodes(int n)
         if(critical[i])
             cout << i << " ";
     }
+
+    cout << endl;
 }
 
 void showBridges()
@@ -139,11 +142,9 @@ void showBridges()
     }
 }
 
-int q,n,m;
+int n,m;
 int main()
 {
-    
-    cin >> q;
     cin >> n >> m;
     fill(mark, mark + n + 3, false);
     for(int i = 1; i <= m; i++)
@@ -161,18 +162,8 @@ int main()
             biconectDFS(i,0,i);
         }
     }
-    
-    switch(q)
-    {
-        case 1:
-            showComponents();
-            break;
-        case 2:
-            showCritNodes(n);
-            break;
-        case 3:
-            showBridges();
-            break;
-    }
+    showComponents();
+    showCritNodes(n);
+    showBridges();
     return 0;
 }
